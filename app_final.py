@@ -232,8 +232,7 @@ if page == "Overview":
         fig_movies_by_year = px.line(
             movies_by_year, 
             x=movies_by_year.index, 
-            y=movies_by_year.values, 
-            title="Movies Released Each Year"
+            y=movies_by_year.values 
         )
         
         st.plotly_chart(fig_movies_by_year, use_container_width=True)
@@ -246,7 +245,6 @@ if page == "Overview":
             movies_by_imdb_rating, 
             x=movies_by_imdb_rating.index, 
             y=movies_by_imdb_rating.values, 
-            title="Average IMDb Ratings of Movies Over the Years",
             color_discrete_sequence=["orange"]
         )
         st.plotly_chart(fig_movies_by_imdb_rating, use_container_width=True)
@@ -259,7 +257,6 @@ if page == "Overview":
         fig_top_5_stars = px.bar(
             x=top_5_stars.index,
             y=top_5_stars.values,
-            title="Top 5 Stars by Number of Movies",
             labels={'x': 'Star', 'y': 'Number of Movies'},
             color_discrete_sequence=['#BFAEE3']
         )
@@ -271,7 +268,6 @@ if page == "Overview":
         fig_top_5_genres = px.bar(
             x=top_5_genres.index,
             y=top_5_genres.values,
-            title="Top 5 Genres by Number of Movies",
             labels={'x': 'Genre', 'y': 'Number of Movies'},
             color_discrete_sequence=['#FEC5E6']
         )
@@ -303,7 +299,6 @@ elif page == "Deep Insights":
         fig_top_5_mpaa = px.bar(
             x=top_5_mpaa.index,
             y=top_5_mpaa.values,
-            title="Top 5 MPAA Ratings by Number of Movies",
             labels={'x': 'MPAA Rating', 'y': 'Number of Movies'},
             color_discrete_sequence=['#4EB09B']
         )
@@ -315,7 +310,6 @@ elif page == "Deep Insights":
             avg_duration_by_mpaa,
             x=avg_duration_by_mpaa.index,
             y=avg_duration_by_mpaa.values,
-            title="Average Duration of Movies by MPAA Rating",
             labels={'x': 'MPAA Rating', 'y': 'Average Duration (minutes)'},
             color_discrete_sequence=['#A8CD89']
         )
@@ -330,7 +324,6 @@ elif page == "Deep Insights":
             x=avg_imdb_by_genre.values,
             y=avg_imdb_by_genre.index,
             orientation='h',
-            title="Top 10 Genres with Highest Average IMDb Ratings",
             labels={'x': 'Average IMDb Rating', 'y': 'Genre'}
         )
         st.plotly_chart(fig_avg_imdb_by_genre, use_container_width=True)
@@ -350,7 +343,6 @@ elif page == "Deep Insights":
             movie_categories,
             names='Category',
             values='Number of Movies',
-            title="Number of Movies by Duration Category",
             color_discrete_sequence=['#C7D7FB', '#F1B0DA', '#FEC4B6'],
             hole=0.6
         )
@@ -367,7 +359,6 @@ elif page == "Deep Insights":
             x=top_10_directors.values,
             y=top_10_directors.index,
             orientation='h',
-            title="Top 10 Directors by Votes",
             labels={'x': 'Total Votes', 'y': 'Director'},
             color_discrete_sequence=['#E97254'],
             category_orders={'y': top_10_directors.index.tolist()}  
@@ -383,7 +374,6 @@ elif page == "Deep Insights":
             x='Votes',
             y='Title',
             orientation='h',
-            title="Top 10 Titles by Votes",
             labels={'Votes': 'Total Votes', 'Title': 'Movie Title'},
             color_discrete_sequence=['#FFD66D'],
             category_orders={'y': top_10_titles['Title'].tolist()}  
