@@ -28,7 +28,6 @@ def load_data():
         df = pd.concat([df, genres], axis=1)
         
         df['Duration_In_Minutes'] = pd.to_numeric(df['Duration_In_Minutes'].str.replace('min', ''), errors='coerce')
-        df['Votes'] = df['Votes'].astype(int)
         df['Stars'] = df['Stars'].apply(lambda x: [s.strip() for s in x])
         all_stars = df['Stars'].explode().str.strip()  
         unique_stars = all_stars.nunique()
@@ -232,8 +231,8 @@ if page == "Overview":
         fig_movies_by_year = px.line(
             movies_by_year, 
             x=movies_by_year.index, 
-            y=movies_by_year.values 
-        )
+            y=movies_by_year.values
+            )
         
         st.plotly_chart(fig_movies_by_year, use_container_width=True)
 
@@ -273,21 +272,6 @@ if page == "Overview":
         )
         st.plotly_chart(fig_top_5_genres, use_container_width=True)
 
-    col1, col2 = st.columns(2)
-    with col1:
-        st.subheader("🎬 Popular Directors")
-        directors_text = " ".join(filtered_df.explode('Director')['Director'].dropna())
-        directors_wordcloud = generate_wordcloud(directors_text)
-        plt.imshow(directors_wordcloud, interpolation='bilinear')
-        plt.axis("off")
-        st.pyplot(plt)
-    with col2:
-        st.subheader("📖 Popular Plot Summary")
-        plot_summary_text = " ".join(filtered_df['Plot_Summary'].dropna())
-        plot_summary_wordcloud = generate_wordcloud(plot_summary_text)
-        plt.imshow(plot_summary_wordcloud, interpolation='bilinear')
-        plt.axis("off")
-        st.pyplot(plt)
 elif page == "Deep Insights":
     st.markdown('<h1 style="text-align: center;">🔍 Deep Insights</h1>', unsafe_allow_html=True)
     st.markdown('<div class="dashed-line"></div>', unsafe_allow_html=True)
@@ -351,34 +335,19 @@ elif page == "Deep Insights":
 
     col1, col2 = st.columns(2)
     with col1:
-        st.subheader("🎬 Top 10 Directors by Votes")
-        top_10_directors = filtered_df.groupby('Director')['Votes'].sum().sort_values(ascending=False).head(10)
-        
-        fig_top_10_directors = px.bar(
-            top_10_directors,
-            x=top_10_directors.values,
-            y=top_10_directors.index,
-            orientation='h',
-            labels={'x': 'Total Votes', 'y': 'Director'},
-            color_discrete_sequence=['#E97254'],
-            category_orders={'y': top_10_directors.index.tolist()}  
-        )
-        st.plotly_chart(fig_top_10_directors, use_container_width=True)
-
+        st.subheader("🎬 Popular Directors")
+        directors_text = " ".join(filtered_df.explode('Director')['Director'].dropna())
+        directors_wordcloud = generate_wordcloud(directors_text)
+        plt.imshow(directors_wordcloud, interpolation='bilinear')
+        plt.axis("off")
+        st.pyplot(plt)
     with col2:
-        st.subheader("🎥 Top 10 Titles by Votes")
-        top_10_titles = filtered_df[['Title', 'Votes']].sort_values(by='Votes', ascending=False).head(10)
-        
-        fig_top_10_titles = px.bar(
-            top_10_titles,
-            x='Votes',
-            y='Title',
-            orientation='h',
-            labels={'Votes': 'Total Votes', 'Title': 'Movie Title'},
-            color_discrete_sequence=['#FFD66D'],
-            category_orders={'y': top_10_titles['Title'].tolist()}  
-        )
-        st.plotly_chart(fig_top_10_titles, use_container_width=True)
+        st.subheader("📖 Popular Plot Summary")
+        plot_summary_text = " ".join(filtered_df['Plot_Summary'].dropna())
+        plot_summary_wordcloud = generate_wordcloud(plot_summary_text)
+        plt.imshow(plot_summary_wordcloud, interpolation='bilinear')
+        plt.axis("off")
+        st.pyplot(plt)
         
 elif page == "Movies Recommendation System":
     
@@ -392,7 +361,6 @@ elif page == "Movies Recommendation System":
     df['Director'] = df['Director'].fillna('')
     df['Plot_Summary'] = df['Plot_Summary'].fillna('')
 
-    # Combine features for TF-IDF
     df['combined_features'] = (
         df['Title'] + ' ' +
         df['Genres'] + ' ' +
@@ -401,7 +369,6 @@ elif page == "Movies Recommendation System":
         df['Plot_Summary']
     )
 
-    # Apply TF-IDF
     tfidf_vectorizer = TfidfVectorizer(stop_words='english', max_features=5000)
     tfidf_matrix = tfidf_vectorizer.fit_transform(df['combined_features'])
 
