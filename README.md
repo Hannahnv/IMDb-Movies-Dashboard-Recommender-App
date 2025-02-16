@@ -24,7 +24,7 @@ streamlit run app_final.py
 Access the dashboard:  
 Open your browser and go to **http://localhost:8501**  
 
-Deploy on **Streamlit Community Cloud**: [Click here](https://imdb-movies-dashboard-recommender.streamlit.app/)  
+Deploy on **Streamlit Community Cloud**: **[Click here](https://imdb-movies-dashboard-recommender.streamlit.app/)**
 
 ## 📝 Requirements  
 
@@ -35,7 +35,7 @@ Ensure the following dependencies are installed:
 
 Install required libraries:  
 ```bash
-pip install streamlit pandas plotly wordcloud matplotlib
+pip install streamlit pandas plotly wordcloud matplotlib numpy scikit-learn openpyxl
 ```
 
 
