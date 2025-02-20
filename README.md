@@ -15,6 +15,10 @@ An interactive **Streamlit** application for visualizing and analyzing IMDb movi
 ### **Movies Recommendation System**  
 - Build a TF-IDF & Cosine Similarity-based movie recommender using NLP techniques.  
 
+## 📖 Tutorial
+For a detailed guide on building an interactive dashboard with Streamlit, refer to the **tutorial article on Medium** [here](https://medium.com/ai-advances/build-an-interactive-imdb-movies-dashboard-with-streamlit-a-practical-guide-14b455f71a52).
+
+
 ## 🚀 Running the Application  
 
 Start the **Streamlit** app:  
