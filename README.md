@@ -28,8 +28,9 @@ streamlit run app_final.py
 Access the dashboard:  
 Open your browser and go to **http://localhost:8501**  
 
-Deploy on **Streamlit Community Cloud**: **[Click here](https://imdb-movies-dashboard-recommender.streamlit.app/)**
+Deploy on **Streamlit Community Cloud**: **[Click here](https://imdb-movies-dashboard-recommender.streamlit.app/)** to view the live version.
 
+**Note**: It might take a few seconds to wake this app up
 ## 📝 Requirements  
 
 Ensure the following dependencies are installed:  
