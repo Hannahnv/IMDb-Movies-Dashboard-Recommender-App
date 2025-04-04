@@ -18,6 +18,8 @@ An interactive **Streamlit** application for visualizing and analyzing IMDb movi
 ## 📖 Tutorial
 For a detailed guide on building an interactive dashboard with Streamlit, refer to the **tutorial article on Medium** [here](https://medium.com/ai-advances/build-an-interactive-imdb-movies-dashboard-with-streamlit-a-practical-guide-14b455f71a52).
 
+## 👥 Team
+This project was developed by a team of **4 contributors**, with **2 core developers** leading the implementation and development of key features.
 
 ## 🚀 Running the Application  
 
