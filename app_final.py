@@ -10,7 +10,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 warnings.filterwarnings('ignore')
 
-st.set_page_config(page_title="Movies Dashboard Recommender App", page_icon=":bar_chart:", layout="wide")
+st.set_page_config(page_title="Movie Dashboard Recommender App", page_icon=":bar_chart:", layout="wide")
 
 def generate_wordcloud(text, colormap='YlOrBr'):
     wordcloud = WordCloud(width=800, height=400, background_color='black', colormap=colormap).generate(text)
