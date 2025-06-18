@@ -349,9 +349,9 @@ elif page == "Deep Insights":
         plt.axis("off")
         st.pyplot(plt)
         
-elif page == "Movies Recommendation System":
+elif page == "Movie Recommendation System":
     
-    st.markdown('<h1 style="text-align: center;">🎥 Movies Recommendation System</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 style="text-align: center;">🎥 Movie Recommendation System</h1>', unsafe_allow_html=True)
     st.write('<div style="text-align: center; font-size: 15px;">This system recommends movies based on multiple search conditions such as movie title, genres, star, and plot summary.</div>', unsafe_allow_html=True)
     st.markdown('<div class="dashed-line"></div>', unsafe_allow_html=True)
     
