@@ -85,7 +85,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Pages in sidebar
-pages = ["Overview", "Deep Insights", "Movies Recommendation System"] 
+pages = ["Overview", "Deep Insights", "Movie Recommendation System"] 
 page = st.sidebar.radio("📂 Pages", pages)
 
 # Filters for all pages
